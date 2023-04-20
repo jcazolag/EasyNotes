@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transcribir</title>
+</head>
+<body>
+	{% extends 'base.html' %}
+	{% block content %}
+	<div>
+		<div>
+			<h2>Trancribe tus audios</h2>
+		</div>
+		<div>
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<input type="file" name="audio_file">
+				<button type="submit">Transcribir</button>
+			</form>
+		</div>
+		<!--
+		<div>
+			<button>Grabar clase</button>
+		</div>
+		-->
+	</div>
+
+
+	<input type="file" id="archivo" style="display:none;" accept=".mp3">
+	<div>
+		<p><h4>{{ mensaje }}</h4>{{ result.text }}</p>
+	</div>
+	{% endblock content %}
+</body>
+</html>
